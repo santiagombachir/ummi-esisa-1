@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESISA Constructora — Sistema de Cotización y Catálogo</title>
+  <meta name="description" content="Prototipo funcional del cotizador de instalaciones y obra industrial para ESISA Constructora.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-group" id="brandHomeBtn" role="button" tabindex="0" title="Ir al Hub Principal">
+        <div class="logo-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="11" fill="#6E2A38" stroke="#FFFFFF" stroke-width="1.5"/>
+            <path d="M7 8H16M7 12H14M7 16H16" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <span class="brand-name">ESISA</span>
+          <span class="brand-tagline">CONSTRUCTORA</span>
+        </div>
+      </div>
+
+      <nav class="main-nav" id="mainNav">
+        <button class="nav-item active" id="navHubBtn" onclick="app.navigateTo('hub')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Hub del Sistema
+        </button>
+        <button class="nav-item" id="navQuotesBtn" onclick="app.navigateTo('quotes')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Cotizaciones
+        </button>
+        <button class="nav-item" id="navCatalogBtn" onclick="app.navigateTo('catalog')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M21 19c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          Catálogo Maestro
+        </button>
+      </nav>
+
+      <div class="user-profile">
+        <span class="user-avatar">SM</span>
+        <div class="user-details">
+          <span class="user-name">Ing. Santiago M.</span>
+          <span class="user-role">Dirección Técnica</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Reality Banner / Disclaimer Contract -->
+  <div class="reality-banner" id="realityBanner">
+    <div class="reality-content">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      <span><strong>Prototipo de demostración:</strong> Catálogo y precios de ejemplo — el catálogo real de ESISA se construye durante la fase de diagnóstico.</span>
+    </div>
+  </div>
+
+  <!-- Main App Container -->
+  <main class="app-main" id="appMain">
+    <!-- Dynamic views injected here -->
+  </main>
+
+  <!-- Side Drawer Catalog (for Quote Editor) -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="app.closeDrawer()"></div>
+  <aside class="side-drawer" id="sideDrawer">
+    <div class="drawer-header">
+      <div class="drawer-title-group">
+        <h3>Catálogo de Partidas</h3>
+        <p>Seleccione partidas para agregar a la cotización activa</p>
+      </div>
+      <button class="icon-btn" onclick="app.closeDrawer()" title="Cerrar panel">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="drawer-filters">
+      <div class="search-input-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="drawerSearch" placeholder="Buscar por clave o descripción..." oninput="app.filterDrawerItems()">
+      </div>
+      <select id="drawerChapterSelect" onchange="app.filterDrawerItems()">
+        <option value="">Todos los capítulos</option>
+      </select>
+    </div>
+    <div class="drawer-body" id="drawerBody">
+      <!-- Items list rendered dynamically -->
+    </div>
+  </aside>
+
+  <!-- Modals -->
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+
+  <!-- Scope Choice Modal for Price Change -->
+  <div class="modal" id="scopeChoiceModal">
+    <div class="modal-header">
+      <div class="modal-tag">Ajuste de Precio Unitario</div>
+      <h3 id="scopeItemName">Actualización de Precio</h3>
+    </div>
+    <div class="modal-body">
+      <p id="scopeChangeSummary">Ha modificado el precio unitario de la partida.</p>
+      <div class="price-diff-box">
+        <div class="price-old">Anterior: <span id="scopeOldPrice">$0.00</span></div>
+        <div class="price-arrow">→</div>
+        <div class="price-new">Nuevo: <span id="scopeNewPrice">$0.00</span></div>
+      </div>
+      <p class="modal-question">¿Dónde desea aplicar este nuevo precio?</p>
+    </div>
+    <div class="modal-actions vertical">
+      <button class="btn btn-secondary" onclick="app.confirmPriceScope('quote')">
+        <strong>Solo en esta cotización</strong>
+        <span class="btn-subtext">El catálogo maestro no cambia. Se registra un indicador de ajuste local.</span>
+      </button>
+      <button class="btn btn-primary" onclick="app.confirmPriceScope('catalog')">
+        <strong>Actualizar el catálogo maestro</strong>
+        <span class="btn-subtext">Las cotizaciones nuevas usarán este precio. Las anteriores se mantienen intactas.</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Audit Trail Modal -->
+  <div class="modal" id="auditTrailModal">
+    <div class="modal-header">
+      <h3 id="auditItemTitle">Historial de Ajustes</h3>
+      <button class="icon-btn" onclick="app.closeModal('auditTrailModal')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    </div>
+    <div class="modal-body" id="auditModalBody">
+      <!-- Audit entries injected here -->
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="app.closeModal('auditTrailModal')">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Gray Module Info Modal -->
+  <div class="modal" id="grayModuleModal">
+    <div class="modal-header">
+      <div class="badge badge-slate" id="grayModPhase">Fase X</div>
+      <h3 id="grayModTitle">Módulo del Sistema</h3>
+    </div>
+    <div class="modal-body">
+      <p id="grayModDesc">Descripción del módulo.</p>
+      <div class="info-callout">
+        <h4>Requisitos y alcance futuro:</h4>
+        <ul id="grayModReqs">
+          <!-- Requirements injected here -->
+        </ul>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="app.closeModal('grayModuleModal')">Entendido</button>
+    </div>
+  </div>
+
+  <!-- New Quote Base Data Modal -->
+  <div class="modal modal-lg" id="newQuoteBaseModal">
+    <div class="modal-header">
+      <div class="modal-tag">Paso 1 de 2 · Datos Base del Concurso</div>
+      <h3>Nueva Cotización</h3>
+    </div>
+    <div class="modal-body">
+      <form id="baseDataForm" onsubmit="event.preventDefault(); app.startNewQuoteFromForm();">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="baseFolio">Folio Asignado</label>
+            <input type="text" id="baseFolio" readonly class="input-readonly">
+          </div>
+          <div class="form-group">
+            <label for="baseFecha">Fecha de Emisión</label>
+            <input type="date" id="baseFecha" required>
+          </div>
+          <div class="form-group col-span-2">
+            <label for="baseCliente">Cliente / Empresa</label>
+            <input type="text" id="baseCliente" placeholder="Ej. Grupo Logístico del Norte" required list="clienteList">
+            <datalist id="clienteList">
+              <option value="Grupo Logístico del Norte">
+              <option value="Alimentos Sierra Alta">
+              <option value="Autopartes Delta Manufacturing">
+              <option value="Inmobiliaria Punto Norte">
+              <option value="Constructora Peninsular">
+            </datalist>
+          </div>
+          <div class="form-group col-span-2">
+            <label for="baseObra">Nombre de la Obra o Proyecto</label>
+            <input type="text" id="baseObra" placeholder="Ej. Nave de distribución — Parque Industrial Las Torres" required>
+          </div>
+          <div class="form-group">
+            <label for="baseUbicacion">Ubicación / Ciudad</label>
+            <input type="text" id="baseUbicacion" placeholder="Ej. Apodaca, N.L." value="Monterrey, N.L.">
+          </div>
+          <div class="form-group">
+            <label for="baseContacto">Contacto Directo</label>
+            <input type="text" id="baseContacto" placeholder="Ej. Ing. Roberto Garza">
+          </div>
+          <div class="form-group">
+            <label for="baseVigencia">Vigencia (Días)</label>
+            <input type="number" id="baseVigencia" value="30" min="5" max="180">
+          </div>
+          <div class="form-group">
+            <label for="baseTiempoEntrega">Tiempo Estimado de Ejecución</label>
+            <input type="text" id="baseTiempoEntrega" value="8 semanas calendario">
+          </div>
+          <div class="form-group col-span-2">
+            <label for="baseCondiciones">Condiciones Comercial de Pago</label>
+            <select id="baseCondiciones">
+              <option value="Anticipo 50% y 50% contra entrega final">Anticipo 50% y 50% contra entrega final</option>
+              <option value="Anticipo 30%, estimaciones quincenales y 10% finiquito" selected>Anticipo 30%, estimaciones quincenales y 10% finiquito</option>
+              <option value="Estimaciones semanales a 15 días tras autorización">Estimaciones semanales a 15 días tras autorización</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="baseElaboro">Elaborado por</label>
+            <input type="text" id="baseElaboro" value="Ing. Santiago M." required>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="app.closeModal('newQuoteBaseModal')">Cancelar</button>
+      <button class="btn btn-primary" onclick="app.startNewQuoteFromForm()">Continuar al Editor &rarr;</button>
+    </div>
+  </div>
+
+  <!-- New Item Modal (Catalog) -->
+  <div class="modal" id="newItemModal">
+    <div class="modal-header">
+      <div class="modal-tag">Catálogo Maestro</div>
+      <h3>Nueva Partida de Catálogo</h3>
+    </div>
+    <div class="modal-body">
+      <form id="newItemForm" onsubmit="event.preventDefault(); app.saveNewCatalogItem();">
+        <div class="form-group">
+          <label for="newItemChapter">Capítulo</label>
+          <select id="newItemChapter" required onchange="app.autoSuggestClave()">
+            <!-- Filled dynamically -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="newItemClave">Clave de Partida</label>
+          <input type="text" id="newItemClave" required placeholder="Ej. ELE-070">
+        </div>
+        <div class="form-group">
+          <label for="newItemDesc">Descripción Detallada</label>
+          <textarea id="newItemDesc" rows="3" required placeholder="Suministro e instalación de..."></textarea>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="newItemUnidad">Unidad de Medida</label>
+            <select id="newItemUnidad" required>
+              <option value="pza">pza</option>
+              <option value="m2">m2</option>
+              <option value="m3">m3</option>
+              <option value="ml">ml</option>
+              <option value="kg">kg</option>
+              <option value="salida">salida</option>
+              <option value="lote">lote</option>
+              <option value="equipo">equipo</option>
+              <option value="juego">juego</option>
+              <option value="sistema">sistema</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="newItemPU">Precio Unitario (MXN)</label>
+            <input type="number" step="0.01" id="newItemPU" required placeholder="0.00">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="app.closeModal('newItemModal')">Cancelar</button>
+      <button class="btn btn-primary" onclick="app.saveNewCatalogItem()">Guardar Partida</button>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toastNotification">
+    <span class="toast-message" id="toastMessage">Notificación</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

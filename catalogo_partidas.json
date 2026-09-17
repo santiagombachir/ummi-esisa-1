@@ -1,0 +1,157 @@
+{
+  "_meta": {
+    "proyecto": "ESISA Constructora — Prototipo de cotizador",
+    "proposito": "Catálogo semilla para demostración. NO son precios reales de ESISA.",
+    "advertencia": "Los precios unitarios son órdenes de magnitud de referencia (MXN, plaza norte de México). Deben validarse con ESISA antes de cualquier uso que no sea demostrativo.",
+    "moneda": "MXN",
+    "especialidad": "Instalaciones (eléctrica, hidrosanitaria, HVAC) y obra industrial / naves",
+    "version": "1.0"
+  },
+
+  "capitulos": [
+    { "clave": "PRE", "nombre": "Preliminares y obra civil complementaria" },
+    { "clave": "EST", "nombre": "Estructura metálica y cubierta" },
+    { "clave": "EMT", "nombre": "Eléctrica — media tensión y subestación" },
+    { "clave": "EBT", "nombre": "Eléctrica — baja tensión y canalizaciones" },
+    { "clave": "ILU", "nombre": "Iluminación" },
+    { "clave": "IHS", "nombre": "Instalación hidrosanitaria" },
+    { "clave": "HVA", "nombre": "HVAC y ventilación" },
+    { "clave": "SES", "nombre": "Sistemas especiales y protección" },
+    { "clave": "PPM", "nombre": "Pruebas, puesta en marcha y documentación" }
+  ],
+
+  "partidas": [
+    { "clave": "PRE-010", "capitulo": "PRE", "descripcion": "Trazo y nivelación de terreno con equipo topográfico, incluye estacado y referencias", "unidad": "m2", "pu": 34.50 },
+    { "clave": "PRE-020", "capitulo": "PRE", "descripcion": "Excavación a máquina en material tipo B, incluye afine de taludes y retiro a banco de tiro", "unidad": "m3", "pu": 268.00 },
+    { "clave": "PRE-030", "capitulo": "PRE", "descripcion": "Relleno compactado con material de banco al 95% Proctor, en capas de 20 cm", "unidad": "m3", "pu": 412.00 },
+    { "clave": "PRE-040", "capitulo": "PRE", "descripcion": "Plantilla de concreto f'c=100 kg/cm2, espesor 5 cm, acabado regleado", "unidad": "m2", "pu": 186.00 },
+    { "clave": "PRE-050", "capitulo": "PRE", "descripcion": "Zapata aislada de concreto f'c=250 kg/cm2, incluye acero de refuerzo, cimbra y colado", "unidad": "m3", "pu": 6480.00 },
+    { "clave": "PRE-060", "capitulo": "PRE", "descripcion": "Firme de concreto MR-42, espesor 15 cm, con fibra estructural y acabado pulido", "unidad": "m2", "pu": 612.00 },
+    { "clave": "PRE-070", "capitulo": "PRE", "descripcion": "Registro eléctrico de 60x60x60 cm de tabique, con tapa de concreto armado y marco de ángulo", "unidad": "pza", "pu": 3850.00 },
+    { "clave": "PRE-080", "capitulo": "PRE", "descripcion": "Ranurado y resane en muro de block para alojar canalización oculta", "unidad": "ml", "pu": 128.00 },
+
+    { "clave": "EST-010", "capitulo": "EST", "descripcion": "Suministro y montaje de estructura metálica a base de armaduras y columnas A-36, incluye placas base y anclas", "unidad": "kg", "pu": 62.00 },
+    { "clave": "EST-020", "capitulo": "EST", "descripcion": "Suministro y colocación de largueros monten galvanizado calibre 12, incluye tornillería", "unidad": "ml", "pu": 285.00 },
+    { "clave": "EST-030", "capitulo": "EST", "descripcion": "Cubierta de lámina galvanizada pintro calibre 26, incluye pijas, sellador y traslapes", "unidad": "m2", "pu": 468.00 },
+    { "clave": "EST-040", "capitulo": "EST", "descripcion": "Lámina translúcida de fibra de vidrio para tragaluz, calibre estructural, incluye sellado", "unidad": "m2", "pu": 725.00 },
+    { "clave": "EST-050", "capitulo": "EST", "descripcion": "Aplicación de primario anticorrosivo y acabado esmalte industrial en estructura, 2 manos", "unidad": "m2", "pu": 158.00 },
+    { "clave": "EST-060", "capitulo": "EST", "descripcion": "Suministro y montaje de portón corredizo industrial de 4x4 m, con guía superior y herrajes", "unidad": "pza", "pu": 68500.00 },
+
+    { "clave": "EMT-010", "capitulo": "EMT", "descripcion": "Subestación compacta tipo pedestal 300 kVA, 13.2 kV / 480-277 V, incluye maniobras de descarga y montaje", "unidad": "pza", "pu": 486000.00 },
+    { "clave": "EMT-020", "capitulo": "EMT", "descripcion": "Transformador tipo poste 75 kVA, 13.2 kV monofásico, incluye herrajes de montaje", "unidad": "pza", "pu": 92500.00 },
+    { "clave": "EMT-030", "capitulo": "EMT", "descripcion": "Cable de media tensión XLP 15 kV, calibre 1/0 AWG, incluye tendido en ducto", "unidad": "ml", "pu": 612.00 },
+    { "clave": "EMT-040", "capitulo": "EMT", "descripcion": "Terminal premoldeada uso interior 15 kV, incluye habilitado y prueba", "unidad": "pza", "pu": 5480.00 },
+    { "clave": "EMT-050", "capitulo": "EMT", "descripcion": "Cortacircuito fusible tipo XS 15 kV con apartarrayos, incluye montaje en poste", "unidad": "juego", "pu": 18400.00 },
+    { "clave": "EMT-060", "capitulo": "EMT", "descripcion": "Banco de ductos de 4 vías en PVC pesado 4\", encofrado en concreto, incluye excavación y relleno", "unidad": "ml", "pu": 1840.00 },
+
+    { "clave": "EBT-010", "capitulo": "EBT", "descripcion": "Tablero de distribución principal 800 A, 480 V, 3F-4H, con interruptor principal y 12 derivados", "unidad": "pza", "pu": 178000.00 },
+    { "clave": "EBT-020", "capitulo": "EBT", "descripcion": "Centro de carga 12 circuitos, 120/240 V, con interruptores termomagnéticos, montaje sobreponer", "unidad": "pza", "pu": 8950.00 },
+    { "clave": "EBT-030", "capitulo": "EBT", "descripcion": "Tubería conduit pared gruesa galvanizada 3/4\", incluye coples, soportería y accesorios", "unidad": "ml", "pu": 218.00 },
+    { "clave": "EBT-040", "capitulo": "EBT", "descripcion": "Tubería conduit pared gruesa galvanizada 2\", incluye coples, soportería y accesorios", "unidad": "ml", "pu": 486.00 },
+    { "clave": "EBT-050", "capitulo": "EBT", "descripcion": "Charola portacable tipo escalera 30 cm, galvanizada en caliente, incluye soportería y curvas", "unidad": "ml", "pu": 1240.00 },
+    { "clave": "EBT-060", "capitulo": "EBT", "descripcion": "Cable THHW-LS calibre 12 AWG, incluye guiado, identificación y conexión", "unidad": "ml", "pu": 42.00 },
+    { "clave": "EBT-070", "capitulo": "EBT", "descripcion": "Cable THHW-LS calibre 4/0 AWG, incluye guiado, identificación y conexión", "unidad": "ml", "pu": 386.00 },
+    { "clave": "EBT-080", "capitulo": "EBT", "descripcion": "Salida para contacto dúplex polarizado 20 A, incluye caja, placa, cableado y canalización", "unidad": "salida", "pu": 1180.00 },
+    { "clave": "EBT-090", "capitulo": "EBT", "descripcion": "Salida para fuerza trifásica 30 A con receptáculo industrial, incluye canalización y cableado", "unidad": "salida", "pu": 4650.00 },
+    { "clave": "EBT-100", "capitulo": "EBT", "descripcion": "Arrancador a tensión reducida para motor de 25 HP, incluye gabinete NEMA 12 y protecciones", "unidad": "pza", "pu": 46800.00 },
+    { "clave": "EBT-110", "capitulo": "EBT", "descripcion": "Variador de frecuencia 20 HP, 480 V, con by-pass e interfaz de operador", "unidad": "pza", "pu": 68400.00 },
+    { "clave": "EBT-120", "capitulo": "EBT", "descripcion": "Banco de capacitores automático 100 kVAR, 480 V, para corrección de factor de potencia", "unidad": "pza", "pu": 124000.00 },
+
+    { "clave": "ILU-010", "capitulo": "ILU", "descripcion": "Luminaria LED tipo high bay 150 W, 5000 K, IP65, incluye suspensión y conexión", "unidad": "pza", "pu": 4280.00 },
+    { "clave": "ILU-020", "capitulo": "ILU", "descripcion": "Luminaria LED lineal 40 W para oficinas, empotrada en plafón, incluye conexión", "unidad": "pza", "pu": 1650.00 },
+    { "clave": "ILU-030", "capitulo": "ILU", "descripcion": "Reflector LED 200 W para exterior, con brazo de montaje y ajuste de ángulo", "unidad": "pza", "pu": 5940.00 },
+    { "clave": "ILU-040", "capitulo": "ILU", "descripcion": "Luminaria de emergencia autónoma con batería de respaldo 90 min, incluye prueba", "unidad": "pza", "pu": 2380.00 },
+    { "clave": "ILU-050", "capitulo": "ILU", "descripcion": "Señalización de ruta de evacuación fotoluminiscente LED, incluye montaje", "unidad": "pza", "pu": 1820.00 },
+    { "clave": "ILU-060", "capitulo": "ILU", "descripcion": "Poste metálico de 9 m para alumbrado exterior, incluye cimentación y anclaje", "unidad": "pza", "pu": 32400.00 },
+
+    { "clave": "IHS-010", "capitulo": "IHS", "descripcion": "Tubería de cobre tipo M 1/2\" para agua fría, incluye conexiones soldadas y soportería", "unidad": "ml", "pu": 268.00 },
+    { "clave": "IHS-020", "capitulo": "IHS", "descripcion": "Tubería PVC hidráulica RD-26 de 2\", incluye conexiones cementadas y soportería", "unidad": "ml", "pu": 224.00 },
+    { "clave": "IHS-030", "capitulo": "IHS", "descripcion": "Tubería PVC sanitaria de 4\", incluye conexiones, pendientes y soportería", "unidad": "ml", "pu": 312.00 },
+    { "clave": "IHS-040", "capitulo": "IHS", "descripcion": "Registro sanitario de 60x40 cm con tapa hermética, incluye plantilla y media caña", "unidad": "pza", "pu": 4650.00 },
+    { "clave": "IHS-050", "capitulo": "IHS", "descripcion": "Salida hidráulica y sanitaria para mueble de baño, incluye canalización y pruebas", "unidad": "salida", "pu": 3480.00 },
+    { "clave": "IHS-060", "capitulo": "IHS", "descripcion": "Cisterna de concreto armado de 20 m3, incluye impermeabilización y tapa de registro", "unidad": "pza", "pu": 186000.00 },
+    { "clave": "IHS-070", "capitulo": "IHS", "descripcion": "Equipo hidroneumático de 2 bombas de 3 HP con tanque precargado y control automático", "unidad": "equipo", "pu": 94500.00 },
+    { "clave": "IHS-080", "capitulo": "IHS", "descripcion": "Trampa de grasas prefabricada de 500 L, incluye conexiones y registro de inspección", "unidad": "pza", "pu": 28600.00 },
+
+    { "clave": "HVA-010", "capitulo": "HVA", "descripcion": "Ducto de lámina galvanizada calibre 24, rectangular, incluye refuerzos, colgantes y sellado", "unidad": "m2", "pu": 1180.00 },
+    { "clave": "HVA-020", "capitulo": "HVA", "descripcion": "Aislamiento térmico de ducto con fibra de vidrio 1-1/2\" y forro de aluminio", "unidad": "m2", "pu": 412.00 },
+    { "clave": "HVA-030", "capitulo": "HVA", "descripcion": "Difusor de techo de 4 vías con cuello y damper de regulación, incluye montaje", "unidad": "pza", "pu": 3240.00 },
+    { "clave": "HVA-040", "capitulo": "HVA", "descripcion": "Rejilla de retorno con filtro lavable, incluye marco y montaje", "unidad": "pza", "pu": 1980.00 },
+    { "clave": "HVA-050", "capitulo": "HVA", "descripcion": "Unidad paquete de aire acondicionado 10 TR, incluye base, conexión eléctrica y arranque", "unidad": "equipo", "pu": 248000.00 },
+    { "clave": "HVA-060", "capitulo": "HVA", "descripcion": "Minisplit inverter 2 TR, incluye interconexión, soportería y carga de refrigerante", "unidad": "equipo", "pu": 32800.00 },
+    { "clave": "HVA-070", "capitulo": "HVA", "descripcion": "Extractor de aire industrial tipo hongo 24\", incluye base y conexión eléctrica", "unidad": "pza", "pu": 24600.00 },
+    { "clave": "HVA-080", "capitulo": "HVA", "descripcion": "Balanceo de sistema de aire con reporte de flujos por difusor", "unidad": "lote", "pu": 42000.00 },
+
+    { "clave": "SES-010", "capitulo": "SES", "descripcion": "Red de tierra física con varilla copperweld 5/8\" y cable desnudo 2/0, incluye soldadura exotérmica", "unidad": "ml", "pu": 486.00 },
+    { "clave": "SES-020", "capitulo": "SES", "descripcion": "Pozo de tierra con registro de inspección, incluye electrodo y tratamiento del terreno", "unidad": "pza", "pu": 12400.00 },
+    { "clave": "SES-030", "capitulo": "SES", "descripcion": "Sistema de pararrayos con punta Franklin, bajante y conexión a tierra", "unidad": "sistema", "pu": 68500.00 },
+    { "clave": "SES-040", "capitulo": "SES", "descripcion": "Panel de detección de incendio direccionable 2 lazos, incluye programación", "unidad": "pza", "pu": 86000.00 },
+    { "clave": "SES-050", "capitulo": "SES", "descripcion": "Detector de humo fotoeléctrico direccionable, incluye base y cableado", "unidad": "pza", "pu": 3480.00 },
+    { "clave": "SES-060", "capitulo": "SES", "descripcion": "Estación manual de alarma con cubierta protectora, incluye montaje y cableado", "unidad": "pza", "pu": 4120.00 },
+    { "clave": "SES-070", "capitulo": "SES", "descripcion": "Cableado estructurado categoría 6A, incluye canalización, jack, patch panel y certificación", "unidad": "nodo", "pu": 3860.00 },
+
+    { "clave": "PPM-010", "capitulo": "PPM", "descripcion": "Pruebas de resistencia de aislamiento y continuidad en instalación eléctrica, con reporte", "unidad": "lote", "pu": 38000.00 },
+    { "clave": "PPM-020", "capitulo": "PPM", "descripcion": "Medición de resistencia de red de tierras con telurómetro, incluye protocolo firmado", "unidad": "lote", "pu": 18500.00 },
+    { "clave": "PPM-030", "capitulo": "PPM", "descripcion": "Pruebas hidrostáticas en red hidráulica y sanitaria, incluye reporte de hermeticidad", "unidad": "lote", "pu": 22400.00 },
+    { "clave": "PPM-040", "capitulo": "PPM", "descripcion": "Elaboración de planos as-built de instalaciones, en formato digital editable e impreso", "unidad": "lote", "pu": 56000.00 },
+    { "clave": "PPM-050", "capitulo": "PPM", "descripcion": "Dictamen de unidad verificadora de instalaciones eléctricas (UVIE) conforme NOM-001-SEDE", "unidad": "lote", "pu": 94000.00 },
+    { "clave": "PPM-060", "capitulo": "PPM", "descripcion": "Capacitación a personal de operación y entrega de manuales de mantenimiento", "unidad": "lote", "pu": 32000.00 }
+  ],
+
+  "cotizaciones_historicas": [
+    {
+      "folio": "COT-2026-0184",
+      "cliente": "Grupo Logístico del Norte",
+      "obra": "Nave de distribución — Parque Industrial Las Torres",
+      "fecha": "2026-06-18",
+      "vigencia_dias": 30,
+      "monto": 8942600.00,
+      "estatus": "Enviada"
+    },
+    {
+      "folio": "COT-2026-0179",
+      "cliente": "Alimentos Sierra Alta",
+      "obra": "Ampliación de cuarto frío y subestación",
+      "fecha": "2026-06-04",
+      "vigencia_dias": 30,
+      "monto": 4318400.00,
+      "estatus": "Ganada"
+    },
+    {
+      "folio": "COT-2026-0171",
+      "cliente": "Autopartes Delta Manufacturing",
+      "obra": "Instalación eléctrica planta 2 — línea de ensamble",
+      "fecha": "2026-05-21",
+      "vigencia_dias": 45,
+      "monto": 6187900.00,
+      "estatus": "Ganada"
+    },
+    {
+      "folio": "COT-2026-0165",
+      "cliente": "Inmobiliaria Punto Norte",
+      "obra": "Instalaciones edificio corporativo — 4 niveles",
+      "fecha": "2026-05-09",
+      "vigencia_dias": 30,
+      "monto": 3746200.00,
+      "estatus": "Perdida"
+    },
+    {
+      "folio": "COT-2026-0158",
+      "cliente": "Grupo Logístico del Norte",
+      "obra": "HVAC y ventilación — bodega refrigerada",
+      "fecha": "2026-04-27",
+      "vigencia_dias": 30,
+      "monto": 2914800.00,
+      "estatus": "Ganada"
+    },
+    {
+      "folio": "COT-2026-0146",
+      "cliente": "Constructora Peninsular",
+      "obra": "Subcontrato de instalaciones — nave textil",
+      "fecha": "2026-04-02",
+      "vigencia_dias": 30,
+      "monto": 5629300.00,
+      "estatus": "Perdida"
+    }
+  ]
+}
